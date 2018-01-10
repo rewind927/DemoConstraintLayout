@@ -13,7 +13,9 @@ import android.widget.Button;
 
 public class MainFragment extends Fragment {
 
-    private Button switchToBarrierFragment;
+    private Button buttonBarrier;
+    private Button buttonGuideline;
+    private Button buttonChain;
 
     public MainFragment() {
         // Required empty public constructor
@@ -40,17 +42,40 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initView();
+        initView(view);
     }
 
-    private void initView() {
-        switchToBarrierFragment = getActivity().findViewById(R.id.button_barrier);
-        switchToBarrierFragment.setOnClickListener(new View.OnClickListener() {
+    private void initView(View view) {
+        buttonBarrier = view.findViewById(R.id.button_barrier);
+        buttonBarrier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment, DemoBarrierFragment.newInstance());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        buttonGuideline = view.findViewById(R.id.button_guideline);
+        buttonGuideline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, DemoGuidelineFragment.newInstance());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        buttonChain = view.findViewById(R.id.button_chain);
+        buttonChain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, DemoChainFragment.newInstance());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }

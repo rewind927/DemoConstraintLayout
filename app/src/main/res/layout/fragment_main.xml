@@ -3,14 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kkbox.codelab.constraintlayout.MainFragment"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    tools:context="com.kkbox.codelab.constraintlayout.MainFragment">
 
     <Button
         android:id="@+id/button_barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Barrier added in constraint 1.1"
+        android:text="Demo barrier"
         app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/button_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Demo guildeline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_barrier" />
+
+    <Button
+        android:id="@+id/button_chain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Demo chain"
+        app:layout_constraintTop_toBottomOf="@id/button_guideline"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -16,6 +16,7 @@ public class MainFragment extends Fragment {
     private Button buttonBarrier;
     private Button buttonGuideline;
     private Button buttonChain;
+    private Button buttonConstraintSet;
 
     public MainFragment() {
         // Required empty public constructor
@@ -76,6 +77,17 @@ public class MainFragment extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment, DemoChainFragment.newInstance());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        buttonConstraintSet = view.findViewById(R.id.button_constraint_set);
+        buttonConstraintSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, DemoConstraintSetFragment.newInstance());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }

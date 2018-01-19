@@ -26,6 +26,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Demo chain"
-        app:layout_constraintTop_toBottomOf="@id/button_guideline"/>
+        app:layout_constraintTop_toBottomOf="@id/button_guideline" />
+
+    <Button
+        android:id="@+id/button_constraint_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Demo constraint set"
+        app:layout_constraintTop_toBottomOf="@id/button_chain" />
 
 </android.support.constraint.ConstraintLayout>

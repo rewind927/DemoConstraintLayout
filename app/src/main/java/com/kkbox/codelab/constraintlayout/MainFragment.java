@@ -12,8 +12,8 @@ import android.widget.Button;
 
 
 public class MainFragment extends Fragment {
-
-    private Button switchToBarrierFragment;
+    private Button buttonBarrier;
+    private Button buttonDimension;
 
     public MainFragment() {
         // Required empty public constructor
@@ -44,13 +44,24 @@ public class MainFragment extends Fragment {
     }
 
     private void initView() {
-        switchToBarrierFragment = getActivity().findViewById(R.id.button_barrier);
-        switchToBarrierFragment.setOnClickListener(new View.OnClickListener() {
+        buttonBarrier = getActivity().findViewById(R.id.button_barrier);
+        buttonBarrier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment, DemoBarrierFragment.newInstance());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        buttonDimension = getActivity().findViewById(R.id.button_dimension);
+        buttonDimension.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, DimensionFragment.newInstance());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
